@@ -7,7 +7,7 @@ import (
 func twocrystalballs(breaks []bool) int {
 	l := int(math.Sqrt(float64(len(breaks))))
 	if l < 1 {
-		return 0
+		return -1
 	}
 
 	i := l
@@ -20,9 +20,9 @@ func twocrystalballs(breaks []bool) int {
 	j := i - l
 	for ; j < len(breaks); j++ {
 		if breaks[j] {
-			break
+			return j
 		}
 	}
 
-	return j
+	return -1
 }

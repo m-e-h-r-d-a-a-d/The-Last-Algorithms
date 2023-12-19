@@ -30,12 +30,12 @@ func TestTwoCrystalBalls(t *testing.T) {
 		{
 			name:   "test 4",
 			breaks: []bool{false},
-			except: 1,
+			except: -1,
 		},
 		{
 			name:   "test 5",
 			breaks: []bool{},
-			except: 0,
+			except: -1,
 		},
 	}
 
