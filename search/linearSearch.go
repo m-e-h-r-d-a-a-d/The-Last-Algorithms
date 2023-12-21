@@ -1,4 +1,4 @@
-package linearsearch
+package search
 
 func linearSearch(haystack []int, needle int) bool {
 	for _, v := range haystack {

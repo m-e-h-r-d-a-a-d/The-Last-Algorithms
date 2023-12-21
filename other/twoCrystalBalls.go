@@ -1,10 +1,10 @@
-package twocrystalballs
+package other
 
 import (
 	"math"
 )
 
-func twocrystalballs(breaks []bool) int {
+func TwoCrystalBalls(breaks []bool) int {
 	l := int(math.Sqrt(float64(len(breaks))))
 	if l < 1 {
 		return -1

@@ -1,33 +1,35 @@
-package stack
+package strct
 
 import "errors"
 
-type node[T any] struct {
+type queueNode[T any] struct {
 	value T
 	next  *node[T]
 }
 
-type Stack[T any] struct {
+type Queue[T any] struct {
 	length int
 	head   *node[T]
+	tail   *node[T]
 }
 
-func (q *Stack[T]) push(v T) {
+func (q *Queue[T]) Enqueue(v T) {
 	n := node[T]{
 		value: v,
 	}
 
 	q.length++
-	if q.head == nil || q.length == 1 {
+	if q.tail == nil || q.length == 1 {
+		q.tail = &n
 		q.head = &n
 		return
 	}
 
-	n.next = q.head
-	q.head = &n
+	q.tail.next = &n
+	q.tail = &n
 }
 
-func (q *Stack[T]) pop() (T, error) {
+func (q *Queue[T]) Dequeue() (T, error) {
 	if q.length == 0 || q.head == nil {
 		var v T
 		return v, errors.New("queue is empty")
@@ -40,6 +42,6 @@ func (q *Stack[T]) pop() (T, error) {
 	return n.value, nil
 }
 
-func (q *Stack[T]) peek() T {
+func (q Queue[T]) Peek() T {
 	return q.head.value
 }

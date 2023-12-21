@@ -1,4 +1,4 @@
-package binarysearch
+package search
 
 import (
 	"testing"
@@ -6,7 +6,7 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-func TestBinarySearch(t *testing.T) {
+func TestLinearSearch(t *testing.T) {
 	testCases := []struct {
 		name     string
 		haystack []int
@@ -15,26 +15,26 @@ func TestBinarySearch(t *testing.T) {
 	}{
 		{
 			name:     "exist 1",
-			haystack: []int{1, 12, 15, 55, 60, 133, 1112, 2304},
-			needle:   15,
+			haystack: []int{2, 12, 15, 1, -60, 133, 12, -200},
+			needle:   -200,
 			except:   true,
 		},
 		{
 			name:     "exist 2",
-			haystack: []int{-100, -45, -34, -23, -1, 0, 22, 250, 2345},
-			needle:   -1,
+			haystack: []int{15, 11550, 111, -23, 232, 0, 22, -200},
+			needle:   11550,
 			except:   true,
 		},
 		{
 			name:     "not exist 1",
-			haystack: []int{1, 12, 15, 55, 60, 133, 1112, 2304},
-			needle:   -10,
+			haystack: []int{2, 12, 15, 1, -60, 133, 12, -200},
+			needle:   0,
 			except:   false,
 		},
 		{
 			name:     "not exist 2",
-			haystack: []int{-100, -45, -34, -23, -1, 14, 22, 250, 2345},
-			needle:   0,
+			haystack: []int{2, 12, 15, 23, -60, 133, 12, 0},
+			needle:   11550,
 			except:   false,
 		},
 	}
@@ -43,7 +43,7 @@ func TestBinarySearch(t *testing.T) {
 		tc := testCases[i]
 
 		t.Run(tc.name, func(t *testing.T) {
-			result := binarySearch(tc.haystack, tc.needle)
+			result := linearSearch(tc.haystack, tc.needle)
 			require.Equal(t, result, tc.except)
 		})
 	}

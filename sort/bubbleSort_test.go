@@ -1,4 +1,4 @@
-package bubblesort
+package sort
 
 import (
 	"testing"
@@ -38,7 +38,7 @@ func TestLinearSearch(t *testing.T) {
 		tc := testCases[i]
 
 		t.Run(tc.name, func(t *testing.T) {
-			result := bubblesort(tc.unsorted)
+			result := bubbleSort(tc.unsorted)
 			require.Equal(t, result, tc.sorted)
 		})
 	}

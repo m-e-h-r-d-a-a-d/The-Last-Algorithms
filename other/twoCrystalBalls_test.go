@@ -1,4 +1,4 @@
-package twocrystalballs
+package other
 
 import (
 	"testing"
@@ -43,7 +43,7 @@ func TestTwoCrystalBalls(t *testing.T) {
 		tc := testCases[i]
 
 		t.Run(tc.name, func(t *testing.T) {
-			result := twocrystalballs(tc.breaks)
+			result := TwoCrystalBalls(tc.breaks)
 			require.Equal(t, result, tc.except)
 		})
 	}
