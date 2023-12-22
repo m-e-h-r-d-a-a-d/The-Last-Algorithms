@@ -4,17 +4,17 @@ import "errors"
 
 type queueNode[T any] struct {
 	value T
-	next  *node[T]
+	next  *queueNode[T]
 }
 
 type Queue[T any] struct {
 	length int
-	head   *node[T]
-	tail   *node[T]
+	head   *queueNode[T]
+	tail   *queueNode[T]
 }
 
 func (q *Queue[T]) Enqueue(v T) {
-	n := node[T]{
+	n := queueNode[T]{
 		value: v,
 	}
 

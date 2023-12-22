@@ -4,42 +4,42 @@ import "errors"
 
 type stackNode[T any] struct {
 	value T
-	next  *node[T]
+	next  *stackNode[T]
 }
 
 type Stack[T any] struct {
 	length int
-	head   *node[T]
+	head   *stackNode[T]
 }
 
-func (q *Stack[T]) Push(v T) {
-	n := node[T]{
+func (s *Stack[T]) Push(v T) {
+	n := stackNode[T]{
 		value: v,
 	}
 
-	q.length++
-	if q.head == nil || q.length == 1 {
-		q.head = &n
+	s.length++
+	if s.head == nil || s.length == 1 {
+		s.head = &n
 		return
 	}
 
-	n.next = q.head
-	q.head = &n
+	n.next = s.head
+	s.head = &n
 }
 
-func (q *Stack[T]) Pop() (T, error) {
-	if q.length == 0 || q.head == nil {
+func (s *Stack[T]) Pop() (T, error) {
+	if s.length == 0 || s.head == nil {
 		var v T
 		return v, errors.New("queue is empty")
 	}
 
-	q.length--
-	n := q.head
-	q.head = q.head.next
+	s.length--
+	n := s.head
+	s.head = s.head.next
 	n.next = nil
 	return n.value, nil
 }
 
-func (q Stack[T]) Peek() T {
-	return q.head.value
+func (s Stack[T]) Peek() T {
+	return s.head.value
 }
