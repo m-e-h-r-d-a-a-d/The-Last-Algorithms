@@ -1,6 +1,6 @@
 package sort
 
-func bubbleSort(input []int) []int {
+func BubbleSort(input []int) []int {
 	l := len(input)
 	for i := 0; i < l-1; i++ {
 		for j := i + 1; j < l; j++ {
