@@ -6,7 +6,7 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-func TestBubbleSort(t *testing.T) {
+func TestQuickSort(t *testing.T) {
 	testCases := []struct {
 		name     string
 		unsorted []int
@@ -38,7 +38,7 @@ func TestBubbleSort(t *testing.T) {
 		tc := testCases[i]
 
 		t.Run(tc.name, func(t *testing.T) {
-			result := BubbleSort(tc.unsorted)
+			result := QuickSort(tc.unsorted)
 			require.Equal(t, result, tc.sorted)
 		})
 	}

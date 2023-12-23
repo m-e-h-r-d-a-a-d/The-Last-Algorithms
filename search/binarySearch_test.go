@@ -43,7 +43,7 @@ func TestBinarySearch(t *testing.T) {
 		tc := testCases[i]
 
 		t.Run(tc.name, func(t *testing.T) {
-			result := binarySearch(tc.haystack, tc.needle)
+			result := BinarySearch(tc.haystack, tc.needle)
 			require.Equal(t, result, tc.except)
 		})
 	}

@@ -43,7 +43,7 @@ func TestLinearSearch(t *testing.T) {
 		tc := testCases[i]
 
 		t.Run(tc.name, func(t *testing.T) {
-			result := linearSearch(tc.haystack, tc.needle)
+			result := LinearSearch(tc.haystack, tc.needle)
 			require.Equal(t, result, tc.except)
 		})
 	}

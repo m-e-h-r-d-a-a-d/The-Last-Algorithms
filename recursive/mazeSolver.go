@@ -5,6 +5,21 @@ type point struct {
 	y int
 }
 
+func Solve(maze []string, wall rune, start point, end point) []point {
+	var path []point
+	var seen [][]bool
+	for _, v := range maze {
+		var temp []bool
+		for range v {
+			temp = append(temp, false)
+		}
+		seen = append(seen, temp)
+	}
+
+	_, path = walk(maze, wall, start, end, seen, path)
+	return path
+}
+
 func walk(maze []string, wall rune, curr point, end point, seen [][]bool, path []point) (bool, []point) {
 	if curr.x < 0 || curr.y < 0 {
 		return false, nil
@@ -43,19 +58,4 @@ func walk(maze []string, wall rune, curr point, end point, seen [][]bool, path [
 	}
 
 	return false, nil
-}
-
-func Solve(maze []string, wall rune, start point, end point) []point {
-	var path []point
-	var seen [][]bool
-	for _, v := range maze {
-		var temp []bool
-		for range v {
-			temp = append(temp, false)
-		}
-		seen = append(seen, temp)
-	}
-
-	_, path = walk(maze, wall, start, end, seen, path)
-	return path
 }

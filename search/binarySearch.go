@@ -1,6 +1,6 @@
 package search
 
-func binarySearch(haystack []int, needle int) bool {
+func BinarySearch(haystack []int, needle int) bool {
 	low := 0
 	high := len(haystack) - 1
 
