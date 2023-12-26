@@ -62,7 +62,8 @@ func TestAll(t *testing.T) {
 	d.InsertAt(222, 2)
 	require.Equal(t, d.head.value, 43)
 	require.Equal(t, d.tail.value, 12)
-	// 43,23,222,12
+
+	// 43,-23,222,12
 	v, err := d.Get(0)
 	require.NoError(t, err)
 	require.Equal(t, v, 43)
@@ -93,11 +94,3 @@ func TestAll(t *testing.T) {
 	_, err = d.Remove(50)
 	require.Equal(t, err, errors.New("item not exist"))
 }
-
-// func TestQueuePeek(t *testing.T) {
-// 	var q Queue[int]
-// 	q.Enqueue(-10)
-// 	p := q.Peek()
-// 	require.Equal(t, q.head.value, -10)
-// 	require.Equal(t, p, -10)
-// }
