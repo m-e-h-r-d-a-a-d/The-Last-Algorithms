@@ -17,39 +17,6 @@ type DoublyLinkedList[T comparable] struct {
 	tail   *DoublyNode[T]
 }
 
-func (d *DoublyLinkedList[T]) InsertAt(item T, idx int) error {
-	if idx > d.length {
-		return errors.New("index out of range")
-	}
-
-	if idx == d.length {
-		d.Append(item)
-		return nil
-	} else if idx == 0 {
-		d.Prepend(item)
-	}
-
-	d.length++
-	n := DoublyNode[T]{
-		value: item,
-	}
-
-	c, err := d.getAt(idx)
-	if err != nil {
-		return err
-	}
-
-	n.next = c
-	n.previous = c.previous
-	c.previous = &n
-
-	if n.previous == nil {
-		n.previous.next = c
-	}
-
-	return nil
-}
-
 func (d *DoublyLinkedList[T]) Prepend(item T) {
 	d.length++
 	n := DoublyNode[T]{
@@ -84,6 +51,39 @@ func (d *DoublyLinkedList[T]) Append(item T) {
 	d.tail = &n
 }
 
+func (d *DoublyLinkedList[T]) InsertAt(item T, idx int) error {
+	if idx > d.length {
+		return errors.New("index out of range")
+	}
+
+	if idx == d.length {
+		d.Append(item)
+		return nil
+	} else if idx == 0 {
+		d.Prepend(item)
+	}
+
+	d.length++
+	n := DoublyNode[T]{
+		value: item,
+	}
+
+	c, err := d.getAt(idx)
+	if err != nil {
+		return err
+	}
+
+	n.next = c
+	n.previous = c.previous
+	c.previous = &n
+
+	if n.previous != nil {
+		n.previous.next = &n
+	}
+
+	return nil
+}
+
 func (d *DoublyLinkedList[T]) Get(idx int) (T, error) {
 	n, err := d.getAt(idx)
 	if err != nil {
@@ -95,7 +95,7 @@ func (d *DoublyLinkedList[T]) Get(idx int) (T, error) {
 }
 
 func (d *DoublyLinkedList[T]) getAt(idx int) (*DoublyNode[T], error) {
-	if idx > d.length {
+	if idx >= d.length {
 		return nil, errors.New("index out of range")
 	}
 
@@ -115,7 +115,7 @@ func (d *DoublyLinkedList[T]) Remove(item T) (T, error) {
 	c := d.head
 
 	i := 0
-	for c != nil || c.value != item || i >= d.length {
+	for c != nil && c.value != item && i < d.length {
 		i++
 		c = c.next
 	}
