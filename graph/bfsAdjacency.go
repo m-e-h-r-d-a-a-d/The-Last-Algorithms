@@ -32,6 +32,7 @@ func bfsSearch(weights [][]int, source int, needle int) []int {
 			}
 			seen[i] = true
 			prev[i] = c
+			q = append(q, i)
 		}
 	}
 
@@ -41,6 +42,7 @@ func bfsSearch(weights [][]int, source int, needle int) []int {
 
 	var out []int
 	c := prev[needle]
+	out = append(out, needle)
 	for c != source {
 		out = append(out, c)
 		c = prev[c]
