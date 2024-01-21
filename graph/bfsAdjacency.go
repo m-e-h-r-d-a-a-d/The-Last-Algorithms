@@ -1,9 +1,5 @@
 package graph
 
-type AdjacencyMatrix struct {
-	weights [][]int
-}
-
 func bfsSearch(weights [][]int, source int, needle int) []int {
 	var seen []bool
 	var prev []int
