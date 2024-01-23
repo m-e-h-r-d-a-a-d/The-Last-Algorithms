@@ -12,7 +12,7 @@ Welcome to The-Last-Algorithms repository, where I've implemented all the projec
 
 ## Introduction
 
-This repository contains my Golang implementations for the projects and samples covered in the online course "The Last Algorithms." While the original course was implemented in TypeScript by [ThePrimeagen](https://github.com/ThePrimeagen) I've implemented all the code in Golang, providing an alternative perspective for learners who prefer or are interested in the Go programming language.
+This repository contains my Golang implementations for the projects and samples covered in the online course [The last algorithms course you will need While the original](https://github.com/ThePrimeagen/fem-algos) was implemented in TypeScript by [ThePrimeagen](https://github.com/ThePrimeagen) I've implemented all the code in Golang, providing an alternative perspective for learners who prefer or are interested in the Go programming language.
 
 ## How to Use
 
