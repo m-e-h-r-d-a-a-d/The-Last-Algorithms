@@ -6,9 +6,6 @@ Welcome to The-Last-Algorithms repository, where I've implemented all the projec
 
 - [Introduction](#introduction)
 - [How to Use](#how-to-use)
-- [Contributing](#contributing)
-- [Reference](#reference)
-- [License](#license)
 
 ## Introduction
 
