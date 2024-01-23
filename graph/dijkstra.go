@@ -6,16 +6,6 @@ const (
 	MaxInt int = (1<<bits.UintSize)/2 - 1
 )
 
-func hasUnvisited(seen []bool, distances []int) bool {
-	for i := 0; i < len(seen); i++ {
-		if seen[i] && distances[i] < MaxInt {
-			return true
-		}
-	}
-
-	return false
-}
-
 func getLowestUnvisited(seen []bool, distances []int) (int, bool) {
 	idx := -1
 	min := MaxInt
