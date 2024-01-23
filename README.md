@@ -1,4 +1,3 @@
-# The-Last-Algorithms
 # The Last Algorithms - Golang Implementation
 
 Welcome to The-Last-Algorithms repository, where I've implemented all the projects and samples from the online course using the Go programming language (Golang). This repository serves as a comprehensive resource for learning and understanding various algorithms.
